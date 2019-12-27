@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BookPOC.Repository;
+using BookPOC.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookPOC.Controllers
@@ -20,8 +21,12 @@ namespace BookPOC.Controllers
 
         public IActionResult List()
         {
-            var books = _bookRepository.GetAllBooks();
-            return this.View(books);
+            var booksListViewModel = new BookListViewModel
+            {
+                Books = _bookRepository.GetAllBooks()
+            };
+
+            return this.View(booksListViewModel);
         }
     }
 }

@@ -1,11 +1,11 @@
-﻿@model IEnumerable<BookPOC.Models.Book>
+﻿@model BookPOC.ViewModels.BookListViewModel
 
 <html>
 <head>
     Books list
 </head>
 <body>
-    @foreach (var book in Model)
+    @foreach (var book in Model.Books)
     {
         <h1>@book.Name</h1>
         <p>@book.ShortDescription</p>
