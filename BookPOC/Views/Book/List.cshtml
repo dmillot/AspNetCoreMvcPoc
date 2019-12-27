@@ -1,0 +1,16 @@
+﻿@model IEnumerable<BookPOC.Models.Book>
+
+<html>
+<head>
+    Books list
+</head>
+<body>
+    @foreach (var book in Model)
+    {
+        <h1>@book.Name</h1>
+        <p>@book.ShortDescription</p>
+        <h2>@book.Price.ToString("C")</h2>
+        <h2>@book.Category.Name</h2>
+    }
+</body>
+</html>
