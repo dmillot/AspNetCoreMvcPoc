@@ -17,7 +17,7 @@ namespace BookPOC
     public class Startup
     {
         private readonly IConfiguration _configuration;
-        Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration)
         {
             _configuration = configuration;
         }
@@ -30,8 +30,8 @@ namespace BookPOC
                 options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"))
             );
             services.AddControllersWithViews();
-            services.AddScoped<IBookRepository, MookBookRepository>();
-            services.AddScoped<ICategoryRepository, MookCategoryRepository>();
+            services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
