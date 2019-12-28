@@ -2,17 +2,5 @@
 
 @foreach (var book in Model.Books)
 {
-    <div class="col-sm-4 col-lg-4 col-md-4">
-        <div class="thumbnail">
-            <h2>
-                <a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id">@book.Name</a>
-            </h2>
-            <img src="@book.ImageUrl" alt="" width="150" height="400">
-            <div class="caption">
-                <p>@book.ShortDescription</p>
-                <h3 class="pull-right">@book.Price.ToString("c")</h3>
-            </div>
-        </div>
-    </div>
-
+    <partial name="_CardBook" model="@book" />
 }
