@@ -11,5 +11,10 @@
             <p>@Model.ShortDescription</p>
             <h3 class="pull-right">@Model.Price.ToString("c")</h3>
         </div>
+        <div class="addToCart">
+            <p class="button">
+                <a class="btn btn-primary" asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-id="@Model.Id">Add to cart</a>
+            </p>
+        </div>
     </div>
 </div>

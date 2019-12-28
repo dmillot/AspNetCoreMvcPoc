@@ -32,6 +32,8 @@ namespace BookPOC
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"))
             );
+            services.AddHttpContextAccessor();
+            services.AddSession();
             services.AddScoped(sp => ShoppingCart.GetCart(sp));
         }
 
@@ -46,6 +48,8 @@ namespace BookPOC
             app.UseHttpsRedirection();
 
             app.UseStaticFiles();
+
+            app.UseSession();
 
             app.UseRouting();
 
