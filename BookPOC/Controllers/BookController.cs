@@ -28,5 +28,14 @@ namespace BookPOC.Controllers
 
             return this.View(booksListViewModel);
         }
+
+        public IActionResult Detail(int id)
+        {
+            var book = _bookRepository.GetBookById(id);
+            if (book == null)
+                return NotFound();
+
+            return this.View(book);
+        }
     }
 }
