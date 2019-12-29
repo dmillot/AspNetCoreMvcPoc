@@ -27,7 +27,24 @@ namespace BookPOC.Controllers
         [HttpPost]
         public IActionResult CreateOrder(Order order)
         {
-            _orderRepository.CreateOrder(order);
+            var items = _shoppingCart.GetShoppingCartItems();
+            _shoppingCart.ShoppingCartItems = items;
+            if (_shoppingCart.ShoppingCartItems.Count == 0)
+            {
+                ModelState.AddModelError("", "Your cart is empty, add some book first.");
+            }
+            if (ModelState.IsValid)
+            {
+                _orderRepository.CreateOrder(order);
+                _shoppingCart.ClearCart();
+                return RedirectToAction("ConfirmOrder");
+            }
+            
+            return View(order);
+        }
+
+        public IActionResult ConfirmOrder()
+        {
             return View();
         }
     }

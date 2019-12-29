@@ -32,7 +32,7 @@ namespace BookPOC.Repository
                     Price = item.Book.Price
                 };
 
-                _appDbContext.OrderDetails.Add(orderDetail);
+                order.OrderDetails.Add(orderDetail);
             }
 
             _appDbContext.Orders.Add(order);

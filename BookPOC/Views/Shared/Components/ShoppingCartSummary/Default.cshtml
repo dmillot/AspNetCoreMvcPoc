@@ -1,6 +1,6 @@
 ﻿@model ShoppingCartViewModel
 
-<a class="nav-item nav-link active" href="#">
+<a class="nav-item nav-link active" asp-controller="ShoppingCart" asp-action="Index">
     <span>@Model.ShoppingCart.ShoppingCartItems.Count</span>
     <i class="fas fa-shopping-cart"></i>
 </a>
