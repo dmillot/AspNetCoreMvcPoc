@@ -9,6 +9,7 @@
             <th>Book</th>
             <th class="text-right">Price</th>
             <th class="text-right">Subtotal</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -19,6 +20,7 @@
                 <td class="text-left">@item.Book.Name</td>
                 <td class="text-right">@item.Book.Price.ToString("c")</td>
                 <td class="text-right">@((item.Amount * item.Book.Price).ToString("c"))</td>
+                <td class="text-center"><a class="btn btn-danger" asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-id="@item.Book.Id">Delete</a></td>
             </tr>
         }
     </tbody>
